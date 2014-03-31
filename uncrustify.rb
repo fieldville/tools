@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 base_path = ENV['PWD']
+base_path ||= ENV['XcodeProjectPath'] + "/.."
+
 config_path = "#{base_path}/.uncrustifyconfig"
 config_path = "#{ENV['HOME']}/.uncrustify/uncrustify.cfg" if !File.exist?(config_path)
 
