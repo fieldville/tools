@@ -10,7 +10,7 @@ puts "running uncrustify for xcode project path: #{base_path}"
 puts "                                   config: #{config_path}"
 
 if base_path != nil
-  paths = `find "#{base_path}" -name "*.m" -o -name "*.h" -o -name "*.mm" -o -name "*.c"`
+  paths = `find "#{base_path}" -name "*.m" -o -name "*.h" -o -name "*.mm" -o -name "*.c" | grep -vwE 'lib|libs'`
   if paths.kind_of?(String) then
     paths = paths.split(/\r?\n/).map {|line| line.chomp}
   end
